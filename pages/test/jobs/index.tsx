@@ -3,7 +3,11 @@ import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 
 // COMPONENTS
-import Card from "../../../components/card";
+
+// This is strategy is required due to the fact that the html which 
+const Card = dynamic(() => import("../../../components/card"), {
+  ssr: false,
+});
 
 // STYLES
 import * as S from "../../../styles/jobs";
@@ -23,23 +27,17 @@ interface IJobsList {
 }
 
 export default function Jobs({ list }: IJobsList) {
-  const [data, setData] = useState<IJobItem[]>([]);
-
   const renderCards = () => {
-    return data.map((job) => (
-      <div key={job.jobId}>
-        <h2>{job.jobTitle}</h2>
-        <section>
-          <p>{job.companyName}</p>
-          <p dangerouslySetInnerHTML={{ __html: job.jobDescription }} />
-        </section>
-      </div>
+    return list.map((job) => (
+      <Card
+        key={job.jobId}
+        job_id={job.jobId}
+        job_title={job.jobTitle}
+        job_description={job.jobDescription}
+        company_name={job.companyName}
+      />
     ));
   };
-
-  useEffect(() => {
-    setData(list);
-  }, []);
 
   return (
     <S.Container>
