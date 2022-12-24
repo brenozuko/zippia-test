@@ -1,8 +1,9 @@
 import { GetServerSideProps } from "next";
-import { GetStaticProps } from "next";
-
-import { AxiosResponse } from "axios";
 import { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
+
+// COMPONENTS
+import Card from "../../../components/card";
 
 // STYLES
 import * as S from "../../../styles/jobs";
@@ -24,23 +25,30 @@ interface IJobsList {
 export default function Jobs({ list }: IJobsList) {
   const [data, setData] = useState<IJobItem[]>([]);
 
+  const renderCards = () => {
+    return data.map((job) => (
+      <div key={job.jobId}>
+        <h2>{job.jobTitle}</h2>
+        <section>
+          <p>{job.companyName}</p>
+          <p dangerouslySetInnerHTML={{ __html: job.jobDescription }} />
+        </section>
+      </div>
+    ));
+  };
+
   useEffect(() => {
     setData(list);
   }, []);
 
   return (
-    <>
-      <S.ContainerTest>teste</S.ContainerTest>
-      {data.map((job) => (
-        <div key={job.jobId}>
-          <h2>{job.jobTitle}</h2>
-          <section>
-            <p>{job.companyName}</p>
-            <p dangerouslySetInnerHTML={{ __html: job.jobDescription }} />
-          </section>
-        </div>
-      ))}
-    </>
+    <S.Container>
+      <S.Header></S.Header>
+
+      <S.Content>{renderCards()}</S.Content>
+
+      <S.Footer></S.Footer>
+    </S.Container>
   );
 }
 
