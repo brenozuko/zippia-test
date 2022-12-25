@@ -2,13 +2,12 @@
 import { GetServerSideProps } from "next";
 import dynamic from "next/dynamic";
 
-// ICONS
-import { BsGithub, BsLinkedin } from "react-icons/bs";
-
 // COMPONENTS
 const Card = dynamic(() => import("../../../components/card"), {
   ssr: false,
 }); // This is strategy is required due to the fact that the html which
+
+import Footer from "../../../components/footer";
 
 // STYLES
 import * as S from "../../../styles/jobs";
@@ -42,26 +41,7 @@ export default function Jobs({ list }: IJobsList) {
         <S.Content>{renderCards()}</S.Content>
       </S.Container>
 
-      <S.Footer>
-        <p>Test realized by Breno Zukowski</p>
-        <S.IconsContainer>
-          <a
-            href="https://www.linkedin.com/in/breno-zukowski-b873101a2/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <BsLinkedin color="#fbfbfb" size={30} />
-          </a>
-
-          <a
-            href="https://github.com/brenozuko"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <BsGithub color="#fbfbfb" size={30} />
-          </a>
-        </S.IconsContainer>
-      </S.Footer>
+      <Footer />
     </>
   );
 }
