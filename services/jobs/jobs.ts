@@ -1,16 +1,9 @@
 import axios from "axios";
 
-const BASE_URL = "https://www.zippia.com/api/jobs/";
+// TYPES
+import { IRequestPayload } from "../../types/jobs";
 
-export interface IRequestPayload {
-  companySkills: boolean;
-  dismissedListingHashes: string[];
-  fetchJobDesc: boolean;
-  jobTitle: string;
-  locations: string[];
-  numJobs: number;
-  previousListingHashes: string[];
-}
+const BASE_URL = "https://www.zippia.com/api/jobs/";
 
 export const getJobs = async (requestPayload: IRequestPayload) => {
   try {

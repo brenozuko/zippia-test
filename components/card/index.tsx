@@ -1,5 +1,5 @@
 // TYPES
-import { CardProps } from "../../types/card";
+import { ICardProps } from "../../types/card";
 
 // STYLES
 import * as S from "../../styles/card";
@@ -8,7 +8,7 @@ const Card = function ({
   job_title,
   job_description,
   company_name,
-}: CardProps) {
+}: ICardProps) {
   return (
     <S.Container>
       <S.Title>{job_title}</S.Title>

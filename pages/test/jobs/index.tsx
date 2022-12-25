@@ -1,5 +1,6 @@
 import { GetServerSideProps } from "next";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import dynamic from "next/dynamic";
 
 // COMPONENTS
@@ -13,18 +14,10 @@ const Card = dynamic(() => import("../../../components/card"), {
 import * as S from "../../../styles/jobs";
 
 //SERVICES
-import { getJobs, IRequestPayload } from "../../../services/jobs";
+import { getJobs } from "../../../services/jobs";
 
-interface IJobItem {
-  jobId: string;
-  jobTitle: string;
-  companyName: string;
-  jobDescription: string;
-}
-
-interface IJobsList {
-  list: IJobItem[];
-}
+// TYPES
+import { IRequestPayload, IJobsList, IJobItem } from "../../../types/jobs";
 
 export default function Jobs({ list }: IJobsList) {
   const renderCards = () => {

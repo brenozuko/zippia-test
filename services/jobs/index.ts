@@ -1,2 +1,1 @@
-export { getJobs } from './jobs'
-export type { IRequestPayload } from './jobs'
+export { getJobs } from "./jobs";

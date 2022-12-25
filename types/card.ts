@@ -1,4 +1,4 @@
-export type CardProps = {
+export interface ICardProps  {
   job_id: string;
   job_title: string;
   company_name: string;
