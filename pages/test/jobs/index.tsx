@@ -1,15 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 import { GetServerSideProps } from "next";
-import { useState, useEffect } from "react";
-import Image from "next/image";
 import dynamic from "next/dynamic";
 
-// COMPONENTS
+// ICONS
+import { BsGithub, BsLinkedin } from "react-icons/bs";
 
-// This is strategy is required due to the fact that the html which
+// COMPONENTS
 const Card = dynamic(() => import("../../../components/card"), {
   ssr: false,
-});
+}); // This is strategy is required due to the fact that the html which
 
 // STYLES
 import * as S from "../../../styles/jobs";
@@ -45,6 +44,23 @@ export default function Jobs({ list }: IJobsList) {
 
       <S.Footer>
         <p>Test realized by Breno Zukowski</p>
+        <S.IconsContainer>
+          <a
+            href="https://www.linkedin.com/in/breno-zukowski-b873101a2/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <BsLinkedin color="#fbfbfb" size={30} />
+          </a>
+
+          <a
+            href="https://github.com/brenozuko"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <BsGithub color="#fbfbfb" size={30} />
+          </a>
+        </S.IconsContainer>
       </S.Footer>
     </>
   );

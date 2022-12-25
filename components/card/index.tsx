@@ -2,7 +2,7 @@
 import { ICardProps } from "../../types/card";
 
 // STYLES
-import * as S from "../../styles/card";
+import * as S from "./styles";
 
 const Card = function ({
   job_title,

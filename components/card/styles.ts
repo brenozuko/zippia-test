@@ -4,7 +4,7 @@ export const Container = styled.div`
   border-bottom: solid 1px #333;
   padding-top: 15px;
   padding-bottom: 15px;
-  max-width: 370px;
+  max-width: 325px;
 
   @media (min-width: 768px) {
     max-width: 700px;
