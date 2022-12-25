@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 
 // COMPONENTS
 
-// This is strategy is required due to the fact that the html which 
+// This is strategy is required due to the fact that the html which
 const Card = dynamic(() => import("../../../components/card"), {
   ssr: false,
 });
@@ -40,13 +40,15 @@ export default function Jobs({ list }: IJobsList) {
   };
 
   return (
-    <S.Container>
+    <>
       <S.Header></S.Header>
 
-      <S.Content>{renderCards()}</S.Content>
+      <S.Container>
+        <S.Content>{renderCards()}</S.Content>
+      </S.Container>
 
       <S.Footer></S.Footer>
-    </S.Container>
+    </>
   );
 }
 

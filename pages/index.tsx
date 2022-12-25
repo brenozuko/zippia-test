@@ -1,9 +1,14 @@
 import Link from "next/link";
 
-export default function Home() {
+// STYLES
+import * as S from "../styles/home";
 
+export default function Home() {
   // This link takes to the jobs page where you will find the most of the logic.
 
-  
-  return <Link href="/test/jobs">Go to Jobs List </Link>;
+  return (
+    <S.Container>
+      <Link href="/test/jobs">Go to Jobs List </Link>
+    </S.Container>
+  );
 }

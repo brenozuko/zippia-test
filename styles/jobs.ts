@@ -5,7 +5,12 @@ export const Container = styled.div`
   margin: 0 auto;
 `;
 
-export const Header = styled.header``;
+export const Header = styled.header`
+  background: #2c2c2c;
+  border-radius: 0;
+  min-height: 68px;
+  z-index: 10;
+`;
 
 export const Content = styled.div``;
 

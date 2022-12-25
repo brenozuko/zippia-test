@@ -11,9 +11,9 @@ const Card = function ({
 }: CardProps) {
   return (
     <S.Container>
-      <h2>{job_title}</h2>
-      <p>{company_name}</p>
-      <p dangerouslySetInnerHTML={{ __html: job_description }} />
+      <S.Title>{job_title}</S.Title>
+      <S.Company>{company_name}</S.Company>
+      <S.Description dangerouslySetInnerHTML={{ __html: job_description }} />
     </S.Container>
   );
 };
