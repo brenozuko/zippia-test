@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { GetServerSideProps } from "next";
 import { useState, useEffect } from "react";
 import Image from "next/image";
@@ -34,13 +35,17 @@ export default function Jobs({ list }: IJobsList) {
 
   return (
     <>
-      <S.Header></S.Header>
+      <S.Header>
+        <img alt="Logo picture" src="/logo.png" />
+      </S.Header>
 
       <S.Container>
         <S.Content>{renderCards()}</S.Content>
       </S.Container>
 
-      <S.Footer></S.Footer>
+      <S.Footer>
+        <p>Test realized by Breno Zukowski</p>
+      </S.Footer>
     </>
   );
 }

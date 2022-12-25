@@ -17,13 +17,13 @@ export const Title = styled.h2`
   font-style: normal;
   font-weight: 600;
   line-height: 22px;
-  max-width: 310px;
+  max-width: 400px;
   overflow: hidden;
   text-overflow: ellipsis;
 `;
 
 export const Company = styled.h3`
-  color: #333;
+  color: #756666;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
