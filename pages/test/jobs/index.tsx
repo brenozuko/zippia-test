@@ -5,12 +5,8 @@ import { GetServerSideProps } from "next";
 import dynamic from "next/dynamic";
 
 // COMPONENTS
-const Card = dynamic(() => import("../../../components/card"), {
-  ssr: false,
-}); // This is strategy is required due to the fact that the html which
-
+import Card from "../../../components/card";
 import Footer from "../../../components/footer";
-
 import Sidebar from "../../../components/sidebar";
 
 // STYLES
