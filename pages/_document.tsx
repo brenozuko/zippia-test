@@ -32,6 +32,8 @@ export default class MyDocument extends Document {
   }
 
   static async getInitialProps(ctx: DocumentContext) {
+    // Without this approach, the server side styles don't work properly.
+
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
 

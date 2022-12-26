@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 /* eslint-disable @next/next/no-img-element */
 import { GetServerSideProps } from "next";
@@ -23,7 +23,7 @@ import { getJobs } from "../../../services/jobs";
 import { IRequestPayload, IJobsList, IJobItem } from "../../../types/jobs";
 
 export default function Jobs({ list }: IJobsList) {
-  const [data, setData] = useState(list);
+  const [data, setData] = useState([] as IJobItem[]);
 
   const renderCards = () => {
     return data.map((job) => (
@@ -45,7 +45,7 @@ export default function Jobs({ list }: IJobsList) {
       titles: ["Business Analyst"],
       locations: [],
       numJobs: 10,
-      postingDateRange: "30d",
+      postingDateRange: "7d",
       previousListingHashes: [],
     };
 
@@ -55,7 +55,9 @@ export default function Jobs({ list }: IJobsList) {
     setData(jobsData);
   };
 
-  const handleCompanyName = () => {};
+  useEffect(() => {
+    setData(list);
+  }, []);
 
   return (
     <>
@@ -64,10 +66,7 @@ export default function Jobs({ list }: IJobsList) {
       </S.Header>
 
       <S.Container>
-        <Sidebar
-          handleSevenDays={handleSevenDays}
-          handleCompanyName={handleCompanyName}
-        />
+        <Sidebar handleSevenDays={handleSevenDays} />
         <div>{renderCards()}</div>
       </S.Container>
 
