@@ -9,6 +9,8 @@ const Card = dynamic(() => import("../../../components/card"), {
 
 import Footer from "../../../components/footer";
 
+import Sidebar from "../../../components/sidebar";
+
 // STYLES
 import * as S from "../../../styles/jobs";
 
@@ -31,6 +33,23 @@ export default function Jobs({ list }: IJobsList) {
     ));
   };
 
+  const handleSevenDays = async () => {
+    const requestParameters: IRequestPayload = {
+      companySkills: true,
+      dismissedListingHashes: [],
+      fetchJobDesc: true,
+      jobTitle: "Business Analyst",
+      locations: [],
+      numJobs: 10,
+      previousListingHashes: [],
+    };
+
+    const jobsResponse = await getJobs(requestParameters);
+    const jobsData: IJobItem[] = await jobsResponse!.data.jobs;
+  };
+
+  const handleCompanyName = () => {};
+
   return (
     <>
       <S.Header>
@@ -38,7 +57,11 @@ export default function Jobs({ list }: IJobsList) {
       </S.Header>
 
       <S.Container>
-        <S.Content>{renderCards()}</S.Content>
+        <Sidebar
+          handleSevenDays={handleSevenDays}
+          handleCompanyName={handleCompanyName}
+        />
+        <div>{renderCards()}</div>
       </S.Container>
 
       <Footer />
@@ -46,7 +69,7 @@ export default function Jobs({ list }: IJobsList) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const requestParameters: IRequestPayload = {
     companySkills: true,
     dismissedListingHashes: [],

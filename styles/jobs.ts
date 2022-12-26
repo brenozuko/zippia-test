@@ -7,6 +7,10 @@ export const Container = styled.div`
 
   @media (min-width: 1024px) {
     padding: 0;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
   }
 `;
 
@@ -23,9 +27,3 @@ export const Header = styled.header`
     max-height: 40px;
   }
 `;
-
-export const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
