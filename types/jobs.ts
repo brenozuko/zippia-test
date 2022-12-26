@@ -2,10 +2,11 @@ export interface IRequestPayload {
   companySkills: boolean;
   dismissedListingHashes: string[];
   fetchJobDesc: boolean;
-  jobTitle: string;
+  titles: string[];
   locations: string[];
   numJobs: number;
   previousListingHashes: string[];
+  postingDateRange?: string;
 }
 
 export interface IJobItem {

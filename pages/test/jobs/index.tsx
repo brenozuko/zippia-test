@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 /* eslint-disable @next/next/no-img-element */
 import { GetServerSideProps } from "next";
 import dynamic from "next/dynamic";
@@ -21,8 +23,10 @@ import { getJobs } from "../../../services/jobs";
 import { IRequestPayload, IJobsList, IJobItem } from "../../../types/jobs";
 
 export default function Jobs({ list }: IJobsList) {
+  const [data, setData] = useState(list);
+
   const renderCards = () => {
-    return list.map((job) => (
+    return data.map((job) => (
       <Card
         key={job.jobId}
         job_id={job.jobId}
@@ -38,14 +42,17 @@ export default function Jobs({ list }: IJobsList) {
       companySkills: true,
       dismissedListingHashes: [],
       fetchJobDesc: true,
-      jobTitle: "Business Analyst",
+      titles: ["Business Analyst"],
       locations: [],
       numJobs: 10,
+      postingDateRange: "30d",
       previousListingHashes: [],
     };
 
     const jobsResponse = await getJobs(requestParameters);
     const jobsData: IJobItem[] = await jobsResponse!.data.jobs;
+
+    setData(jobsData);
   };
 
   const handleCompanyName = () => {};
@@ -74,7 +81,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
     companySkills: true,
     dismissedListingHashes: [],
     fetchJobDesc: true,
-    jobTitle: "Business Analyst",
+    titles: ["Business Analyst"],
     locations: [],
     numJobs: 10,
     previousListingHashes: [],

@@ -12,8 +12,8 @@ const Sidebar = function ({
     <S.Container>
       <S.Title>Filter by</S.Title>
       <S.ButtonsContainer>
-        <S.FilterButton>Last 7 Days</S.FilterButton>
-        <S.FilterButton>Company Name</S.FilterButton>
+        <S.FilterButton onClick={handleSevenDays}>Last 7 Days</S.FilterButton>
+        <S.FilterButton >Company Name</S.FilterButton>
       </S.ButtonsContainer>
     </S.Container>
   );

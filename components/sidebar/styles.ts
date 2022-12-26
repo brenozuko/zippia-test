@@ -15,6 +15,7 @@ export const Title = styled.h2`
 
 export const ButtonsContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
 `;
 
 export const FilterButton = styled.button`
