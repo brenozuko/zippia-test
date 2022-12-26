@@ -2,12 +2,15 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+Install the dependencies with:
+```bash
+pnpm install
+```
+
+And then run the development server:
 
 ```bash
-npm run dev
-# or
-yarn dev
+pnpm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -36,7 +39,10 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ## Application info
 
 - This application uses Styled Components for it's styling, Axios for request management.
+- This app is using pnpm for package managing.
 - The main folders are: pages, types, styles, services and components.
 - The folder services contain all the API calls used throughout the app.
-- The index page only has a link leading through the test page listed under `pages/test/jobs`
- 
+- The index page only has a link leading through the test page listed under `pages/test/jobs/index.tsx`
+- This application uses Typescript in it's core.
+- Any doubts please contact me at my personal e-mail: brenozukotech@gmail.com
+- The deploy can be found in: https://zippia-breno.vercel.app/ 
